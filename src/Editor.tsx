@@ -174,11 +174,47 @@ const Toolbar = observer(function Toolbar({ state, onSaveButtonClick }: ToolbarP
   );
 });
 
+const Polygons = observer(function Polygons({ state }: BaseProps) {
+  const { selectedIndex } = state;
+
+  return (
+    <>
+      {state.polygons.map((poly, i) =>
+        <polygon
+          key={i}
+          data-index={i}
+          fill={i === selectedIndex ? "#00897B" : "#E53935"}
+          stroke="#00897B"
+          strokeWidth="3"
+          points={poly.map(([x, y]) => x + "," + y).join(" ")} />
+      )}
+    </>
+  );
+});
+
+const ClosestPoints = observer(function ClosestPoints({ state }: BaseProps) {
+  return (
+    <>
+      {state.closestPoints.map(([x, y], i) =>
+        <circle
+          key={i}
+          fill="#D500F9"
+          stroke="#651FFF"
+          strokeWidth="1"
+          cx={x}
+          cy={y}
+          r="5" />
+      )}
+    </>
+  );
+});
+
 export default observer(function Editor() {
   // NOTE: we do not need a state setter because the whole point of Mobx is that it
   // allows us to use mutable state and will automatically re-render this component
   // as necessary thanks to the observer() wrapper
   const [state] = useState(() => new EditorState);
+  const {addPolyPreview} = state;
 
   function saveEditorState(): void {
     console.log(JSON.stringify(state.polygons, undefined, 4));
@@ -194,6 +230,25 @@ export default observer(function Editor() {
       <svg
         id="canvas"
         xmlns="http://www.w3.org/2000/svg">
+
+        <Polygons state={state} />
+
+        {/*
+          NOTE: all of the closest point circles are intentionally rendered after ALL
+          of the polygons, meaning that if two polygons are overlapping, the closest
+          point for the covered one will still be visible.
+        */}
+        <ClosestPoints state={state} />
+
+        {addPolyPreview &&
+          <polygon
+            fill="transparent"
+            stroke="#FFFF00"
+            strokeWidth="1"
+            strokeDasharray="1 1"
+            points={addPolyPreview.map(([x, y]) => x + "," + y).join(" ")}
+            pointerEvents="none" />
+        }
 
       </svg>
 
