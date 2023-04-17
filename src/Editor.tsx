@@ -58,7 +58,7 @@ export default observer(function Editor() {
   const [state] = useState(() => new EditorState);
 
   function saveEditorState(ev: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    // TODO
+    console.log(JSON.stringify(state.polygons, undefined, 4));
   }
 
   return (
