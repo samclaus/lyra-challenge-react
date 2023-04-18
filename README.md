@@ -21,7 +21,7 @@ All code is in the `src/` folder, which contains the following files:
 
 - `main.tsx`: imports the editor component and renders it with `react-dom`, nothing more.
 
-## Things I don't like about my solution
+## Comparison with the Svelte version
 
 - React + Mobx = much bigger bundle size than Svelte. (Try building both projects for production with `npm run build` and check Vite output file sizes.)
 - React + Mobx = more verbose code than Svelte. (Compare `Editor.tsx` with `Editor.svelte`, remembering that `Editor.svelte` also contains quite a few CSS styles.)
