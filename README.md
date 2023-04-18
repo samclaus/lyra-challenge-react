@@ -13,11 +13,11 @@ npm run dev
 
 All code is in the `src/` folder, which contains the following files:
 
-- `Editor.tsx`: all the UI logic. The editor is split up into several React function components (which are wrapped with the Mobx `observer` API), because doing so is critical for fine-grained re-rendering, i.e., we don't want to re-render all the polygons when just the selected tool changed, and vice versa. The file also contains the Mobx-based `EditorState` class which holds all the application state except a couple things like the current drag information.
+- `Editor.tsx`: all of the UI logic. The editor is split up into several React function components (which are wrapped with the Mobx `observer` API), because doing so is critical for fine-grained re-rendering, i.e., we don't want to re-render all the polygons when just the selected tool changed, and vice versa. The file also contains the Mobx-based `EditorState` class which holds all the application state except a couple things like the current drag information.
 
 - `geometry.ts`: vanilla TypeScript polygon types and math functions. I copy-pasted this as-is from the Svelte version of this project. It defines core data types for the application and powers the "Closest points" editor tool.
 
-- `index.css`: all the CSS for the application. React does not appear to have a good go-to solution for CSS so I decided to dump everything in one file so I could feel secure in knowing Vite would minify it away and performance would be good--I did not want to go learning CSS-in-JS libraries at the moment and I didn't want to risk doing something stupid like repeatedly computing a ton of inline styles in the JSX.
+- `index.css`: all of the CSS for the application. React does not appear to have a good go-to solution for CSS so I decided to dump everything in one file so I could feel secure in knowing Vite would minify it away and performance would be good--I did not want to go learning CSS-in-JS libraries at the moment and I didn't want to risk doing something stupid like repeatedly computing a ton of inline styles in the JSX.
 
 - `main.tsx`: imports the editor component and renders it with `react-dom`, nothing more.
 
