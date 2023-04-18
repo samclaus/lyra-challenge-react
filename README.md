@@ -17,7 +17,7 @@ All code is in the `src/` folder, which contains the following files:
 
 - `geometry.ts`: vanilla TypeScript polygon types and math functions. I copy-pasted this as-is from the Svelte version of this project. It defines core data types for the application and powers the "Closest points" editor tool.
 
-- `index.css`: all of the CSS for the application. React does not appear to have a good go-to solution for CSS so I decided to dump everything in one file so I could feel secure in knowing Vite would minify it away and performance would be good--I did not want to go learning CSS-in-JS libraries at the moment and I didn't want to risk doing something stupid like repeatedly computing a ton of inline styles in the JSX.
+- `index.css`: all of the CSS for the application. React does not appear to have a good go-to solution for CSS so I decided to dump everything in one file so I could feel secure in knowing Vite would minify it away and performance would be good.
 
 - `main.tsx`: imports the editor component and renders it with `react-dom`, nothing more.
 
