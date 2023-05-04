@@ -1,6 +1,7 @@
 {
   "name": "lyra-challenge-react",
   "version": "0.0.0",
+  "license": "WTFPL",
   "description": "React+MobX-based solution to a job candidate challenge from Lyra solar.",
   "private": true,
   "repository": {
