@@ -1,8 +1,17 @@
 {
   "name": "lyra-challenge-react",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "description": "React+MobX-based solution to a job candidate challenge from Lyra solar.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samclaus/lyra-challenge-react.git"
+  },
+  "author": {
+    "name": "Sam Claus",
+    "email": "hello@samcla.us",
+    "url": "https://samcla.us/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,5 +29,6 @@
     "mobx-react-lite": "^3.4.3",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
-  }
+  },
+  "type": "module"
 }
